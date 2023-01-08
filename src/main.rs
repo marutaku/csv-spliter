@@ -39,5 +39,4 @@ fn main() {
             csv_flagment = CSVFragment::new(header.clone(), line_count);
         }
     }
-    println!("line count: {line_count}");
 }
