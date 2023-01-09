@@ -33,4 +33,7 @@ impl CSVFragment {
     pub fn is_full(&self) -> bool {
         self.records.len() == self.capacity
     }
+    pub fn len(&self) -> usize {
+        self.records.len()
+    }
 }
