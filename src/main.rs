@@ -16,8 +16,14 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
-    let file_prefix = args.prefix.unwrap_or(String::from("./"));
+    let file_prefix = args.prefix.unwrap_or(String::from("split_"));
+    let output_dir = args.output_dir.unwrap_or(String::from("./"));
 
-    split::split_csv(args.input_filepath, args.line_count, &file_prefix)
-        .expect("Split csv failed: ");
+    split::split_csv(
+        args.input_filepath,
+        args.line_count,
+        &file_prefix,
+        &output_dir,
+    )
+    .expect("Split csv failed: ");
 }

@@ -1,5 +1,5 @@
 use csv::{StringRecord, Writer};
-use std::error::Error;
+use std::{error::Error, path::PathBuf};
 
 pub struct CSVFragment {
     header: StringRecord,
@@ -16,7 +16,7 @@ impl CSVFragment {
         }
     }
 
-    pub fn write_records_to_file(&self, filepath: &str) -> Result<(), Box<dyn Error>> {
+    pub fn write_records_to_file(&self, filepath: &PathBuf) -> Result<(), Box<dyn Error>> {
         let mut writer = Writer::from_path(filepath)?;
         writer.write_record(&self.header)?;
         for record in &self.records {
