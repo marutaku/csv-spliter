@@ -3,13 +3,21 @@ use clap::Parser;
 mod fragment;
 mod split;
 
+/// Simple CSV file splitter
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
+    /// CSV file to split
     input_filepath: String,
+
+    /// Line count of each splitted file
     line_count: usize,
+
+    /// Output file prefix
     #[arg(short, long)]
     prefix: Option<String>,
+
+    /// Output file directory
     #[arg(short, long)]
     output_dir: Option<String>,
 }
